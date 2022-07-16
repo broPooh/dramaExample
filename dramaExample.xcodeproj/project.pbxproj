@@ -25,6 +25,7 @@
 		1B15942D285D804500D9EA56 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B15942C285D804500D9EA56 /* DetailTableViewCell.swift */; };
 		1B159432285D809600D9EA56 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B159431285D809600D9EA56 /* SearchViewController.swift */; };
 		1B159434285D80CD00D9EA56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B159433285D80CD00D9EA56 /* DetailViewController.swift */; };
+		1BDDFC472882433000B04621 /* SearchTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDDFC462882433000B04621 /* SearchTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		1B15942C285D804500D9EA56 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		1B159431285D809600D9EA56 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1B159433285D80CD00D9EA56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		1BDDFC462882433000B04621 /* SearchTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				1B159431285D809600D9EA56 /* SearchViewController.swift */,
+				1BDDFC462882433000B04621 /* SearchTestViewController.swift */,
 				1B159433285D80CD00D9EA56 /* DetailViewController.swift */,
 			);
 			path = ViewController;
@@ -224,6 +227,7 @@
 				1B159417285D7E9200D9EA56 /* APIService.swift in Sources */,
 				1B15941D285D7EE500D9EA56 /* URL+Extension.swift in Sources */,
 				1B1593FE285D7E4800D9EA56 /* SceneDelegate.swift in Sources */,
+				1BDDFC472882433000B04621 /* SearchTestViewController.swift in Sources */,
 				1B159422285D7F6C00D9EA56 /* SearchCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

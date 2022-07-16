@@ -91,23 +91,27 @@ class DetailTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(postImageView)
             make.leading.equalTo(postImageView.snp.trailing).offset(10)
+            make.trailing.equalToSuperview()
             make.height.equalTo(20)
         }
 
         seasonLabel.snp.makeConstraints { make in
             make.top.equalTo(postImageView)
             make.leading.equalTo(titleLabel.snp.trailing).offset(5)
+            make.trailing.equalToSuperview()
         }
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(3)
             make.leading.equalTo(postImageView.snp.trailing).offset(10)
+            make.trailing.equalToSuperview()
             make.height.equalTo(16)
         }
         
         episodeLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel)
             make.leading.equalTo(dateLabel.snp.trailing).offset(3)
+            make.trailing.equalToSuperview()
         }
 
         descriptionLabel.snp.makeConstraints { make in
