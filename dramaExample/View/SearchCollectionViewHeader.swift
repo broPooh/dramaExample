@@ -12,7 +12,7 @@ class SearchCollectionViewHeader: UICollectionReusableView {
         return String(describing: self)
     }
             
-    private let textLabel: UILabel = {
+    var textLabel: UILabel = {
         let label = UILabel()
         label.text = "영화 및 TV 프로그램"
         label.textColor = .white

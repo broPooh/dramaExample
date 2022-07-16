@@ -49,6 +49,22 @@ class SearchTestViewController: UIViewController {
             return searchCollectionViewCell
         }
         
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+          // 2
+          guard kind == UICollectionView.elementKindSectionHeader else {
+            return nil
+          }
+          // 3
+          let view = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: SearchCollectionViewHeader.reuseIdentifier,
+            for: indexPath) as? SearchCollectionViewHeader
+          // 4
+          let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+          //view?.textLabel.text = ""
+          return view
+        }
+        
     }
         
     private func configureCollectionView() {
@@ -57,9 +73,9 @@ class SearchTestViewController: UIViewController {
         //collectionView.dataSource = self
         collectionView.backgroundColor = .black
         collectionView.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
-//        collectionView.register(SearchCollectionViewHeader.self,
-//                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-//                                withReuseIdentifier: SearchCollectionViewHeader.reuseIdentifier)
+        collectionView.register(SearchCollectionViewHeader.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: SearchCollectionViewHeader.reuseIdentifier)
         
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -95,6 +111,9 @@ class SearchTestViewController: UIViewController {
                     snapshot.appendSections([.title])
                     snapshot.appendItems(response.results, toSection: .title)
                     self.dataSource.apply(snapshot, animatingDifferences: false)
+                    
+                    self.tvshows = response.results
+                    
 //                    self.tvshows = response.results.filter { $0.backdropPath != nil }
 //                    self.collectionView.reloadData()
                 }
@@ -107,10 +126,11 @@ class SearchTestViewController: UIViewController {
 
 
 extension SearchTestViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SearchCollectionViewHeader.reuseIdentifier, for: indexPath) as! SearchCollectionViewHeader
-//        return header
-//    }
+            
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SearchCollectionViewHeader.reuseIdentifier, for: indexPath) as! SearchCollectionViewHeader
+        return header
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = DetailViewController()
@@ -138,9 +158,9 @@ extension SearchTestViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: view.frame.width, height: 50)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
 }
 
 extension SearchTestViewController: UISearchBarDelegate {
